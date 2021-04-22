@@ -1,0 +1,11 @@
+{
+    "environment": "prod",
+    "port": 3000,    
+    "google":{
+        "scopes": [
+            "https://www.googleapis.com/auth/admin.directory.user"
+        ],
+        "token_path": "token.json",
+        "credentials_path": "./credentials.json"
+    }
+}

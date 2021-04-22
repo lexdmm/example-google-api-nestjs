@@ -22,7 +22,9 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
+# Authentication Google API Node
 ## Description
+How to API SDK Google Admin
 A google test implemented with NestJS. Using NestJS is very good because it defines an architecture for the projects that looks really cool.
 
 ## Installation
@@ -57,16 +59,35 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+### 1 - Credentials
+To work you need a GSuite administrator user and a service account with a registered project.
+I used my own user, and the credentials are not here at the source for obvious security reasons, but the link to the credential is the one below:
+https://console.cloud.google.com/apis/credentials
+
+Access the link https://developers.google.com/admin-sdk/directory/v1/quickstart/nodejs
+Then click on the "Enable the Directory API" button. Enable access by selecting the project, just follow the instructions.
+In the resulting dialog, click on DOWNLOAD CLIENT CONFIGURATION and save the credentials.json file to your working directory.
+
+### 2 - Use the routine you want to list or update users
+``` bash
+# getUsers - to list the user
+function getUsers(auth) {
+
+# updateUser - to change (suspend) the user: be careful, leave the parameter inside it as false to not suspend or mistake.
+function updateUser(auth) {
+    ...
+}
+
+# Just replace the call on the controler with one or the other
+return this.appGsuiteService.getUsers();
+```
+### More information about the google api can be seen in the link documentation:
+https://developers.google.com/admin-sdk/directory/v1/quickstart/nodejs
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
 ## License
 
-  Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
